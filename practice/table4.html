@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="row" id="r1">
+    <input type="number" name="colume" id ="c1">
+    <input type="button" value="button" id="b1" onclick="table12()">
+    <script>
+        function table12(){
+        let row = document.getElementById("r1").value;
+        let colume = document.getElementById("c1").value;
+        let table3 = document.getElementById("table1")
+
+        let t = ""
+        for(i=1;i<=row;i++){
+            t = t + "<tr>"
+                for(j=1;j<=colume;j++){
+                    t = t + "<td onclick = 'alert("+i +j+")'>" + i+","+j+"</td>"
+                }
+                t = t + "</tr>"
+        }
+        table3.innerHTML = t;
+        }
+        function rc(){
+            alert(i ,j)
+        }
+    </script>
+    <table border="1" id = "table1">
+
+    </table>
+</body>
+</html>

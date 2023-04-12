@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            padding: 5px;
+            text-align: center;
+            margin: 10px;
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <% for(let i=0;i<10 ;i++) {%>
+
+    <table border="1" align="center" id="table">
+        <tr>
+            <td>id</td>
+            <td>first_name</td>
+            <td>last_name</td>
+            <td>college</td>
+            <td>city</td>
+            <td>email</td>
+            <td>contact_no</td>
+        </tr>
+            <% for(let j=0;j<10 ;j++) {%>
+        <tr>
+            <td><%= data[i][j].id%></td>
+            <td><%= data[i][j].first_name%></td>
+            <td><%= data[i][j].last_name%></td>
+            <td><%= data[i][j].college%></td>
+            <td><%= data[i][j].city%></td>
+            <td><%= data[i][j].email%></td>
+            <td><%= data[i][j].contact_no%></td>
+            
+        </tr>
+        <% };%>
+
+       <% };%>
+    </table>
+</body>
+</html>                 
+
+
+
+
+
+  <!-- <fieldset id="led4">
+            <legend>Language Know</legend>
+            <table align="center">
+                <% for(let i=0;i<data9.length ;i++) {%>
+                    <tr>
+                        <td><input type="checkbox" id="h1" name="language" value="<%= data9[i].option_tag_value%>"></td>
+                        <td><label for="h1"><%= data9[i].option_tag_value%></label></td>
+                    
+                    <% if(i <= lang.length ){%>
+                   <% if(lang[i].l_read == 'Yes'){%>
+                        <td><input type="checkbox" id="h1" name="read" value="<%= data9[i].option_tag_value%>" checked></td>
+                        <td><label for="h1">Read</label></td>
+                        <% }else{%>
+                            <td><input type="checkbox" id="h1" name="read" value="<%= data9[i].option_tag_value%>" ></td>
+                            <td><label for="h1">Read</label></td>
+                        <% }%>
+                    <% if(lang[i].l_write == 'Yes'){%>
+                        <td><input type="checkbox" id="h1" name="write" value="<%= data9[i].option_tag_value%>" checked></td>
+                        <td><label for="h1">Write</label></td>
+                        <% }else{%>
+                            <td><input type="checkbox" id="h1" name="write" value="<%= data9[i].option_tag_value%>"></td>
+                            <td><label for="h1">Write</label></td>
+                            <% }%>
+                    <% if(lang[i].l_speak == 'Yes'){%>
+                        <td><input type="checkbox" id="h1" name="speak" value="<%= data9[i].option_tag_value%> " checked></td>
+                        <td><label for="h1">Speak</label></td>
+                        <% }else%>
+                        <td><input type="checkbox" id="h1" name="speak" value="<%= data9[i].option_tag_value%>"></td>
+                        <td><label for="h1">Speak</label></td>
+                        <% }%>
+                   <% }%> -->
+                         <!-- <td><input type="checkbox" id="h1" name="read" value="<%= data9[i].option_tag_value%>"></td>
+                        <td><label for="h1">Read</label></td> 
+                         <td><input type="checkbox" id="h1" name="write" value="<%= data9[i].option_tag_value%>"></td>
+                        <td><label for="h1">Write</label></td>
+                        <td><input type="checkbox" id="h1" name="speak" value="<%= data9[i].option_tag_value%>"></td>
+                        <td><label for="h1">Speak</label></td>  -->
+                    <!-- </tr>
+                    <% }%>
+                
+                
+                    
+            </table>
+        </fieldset> -->
+
+
+        <fieldset id="led5">
+            <legend>Technology </legend>
+            <table align="center">
+
+                <% var techpush=[]%>
+                <% for(let p=0;p<tech.length){%>
+
+                    <% techpush.push(tech[p].tech_name)%>
+                        <% }%> 
+                <% for(let i=0;i<data10.length ;i++) {%>
+                    <tr>
+                        <td><input type="checkbox" id="t1" name="t1" value="<%= data10[i].option_tag_value%>"></td>
+                        <td><label for="h1">
+                                <%= data10[i].option_tag_value%>
+                            </label></td>
+                        <td>
+
+                           
+
+
+                                            <% var tech_1=['beginer','mideator','expert']%>
+
+
+                                                <% for( let t=0;t< tech_1.length;t++){%>
+
+                                                    <!-- <% if(techpush.includes(<%=data10[i].option_tag_value%>)){%> 
+                                                        <% if(tech_1[t]==tech[i].rate ){%>
+                                                            <input type="radio" id="t1"
+                                                                name="<%= data10[i].option_tag_value%>"
+                                                                value="<%= tech_1[t]%>" checked>
+                                                            <label for="h1">
+                                                                <%= tech_1[t]%>
+                                                            </label>
+                                                            <% }else{%>
+                                                                <input type="radio" id="t1"
+                                                                    name="<%= data10[i].option_tag_value%>"
+                                                                    value="<%= tech_1[t]%>">
+                                                                <label for="h1">
+                                                                    <%= tech_1[t]%>
+                                                                </label>
+                                                                <% }%>
+                                                            <% }%>
+                                                                     <% }else{%>
+                                                                            <input type="radio" id="t1"
+                                                                                name="<%= data10[i].option_tag_value%>"
+                                                                                value="<%= tech_1[t]%>">
+                                                                            <label for="h1">
+                                                                                <%= tech_1[t]%>
+                                                                            </label>
+
+
+                                                                            <% }%> 
+
+                                                                                <!-- <td><input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="beginer">
+                    <label for="h1">Beginer</label>
+                    <input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="mideator">
+                    <label for="h1">Mideator</label>
+                    <input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="expert">
+                    <label for="h1">Expert</label></td> -->
+                        </td>
+                    </tr>
+                    <% }%>
+
+            </table>
+        </fieldset>
+
+
+        <% var arr_1=['beginer','mideator','expert']%>
+                        <% for(let k=0;k<arr_1.length;k++){%>
+                            <% if(arr[k]==tech[0].tech_name){%>
+
+                               <td> <input type="radio" id="male" name="<%= data10[i].option_tag_value%>" value="<%= arr_1[k]%>" checked> <%= arr_1[k]%></td>                                <%= arr_1[k]%>
+                                    <% }else{%>
+
+                                        <td><input type="radio" id="male" name="<%= data10[i].option_tag_value%>" value="<%= arr_1[k]%>">
+                                        <%= arr_1[k]%> </td>
+                                            <% }%>
+                                                <% }%>
+
+                                                 <!-- <tr>
+                    <td><input type="checkbox" id="t1" name="t1" value="<%= data10[i].option_tag_value%>"></td>
+                    <td><label for="h1"><%= data10[i].option_tag_value%></label></td>
+                    <td><input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="beginer">
+                    <label for="h1">Beginer</label>
+                    <input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="mideator">
+                    <label for="h1">Mideator</label>
+                    <input type="radio" id="t1" name="<%= data10[i].option_tag_value%>" value="expert">
+                    <label for="h1">Expert</label></td>
+                </tr> -->

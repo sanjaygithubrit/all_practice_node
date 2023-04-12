@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search {
+            text-align: center;
+        }
+
+        body {
+            background-color: lemonchiffon;
+        }
+
+        #text {
+            text-align: center;
+        }
+
+        table {
+            height: 70%;
+            width: 70%;
+            border-collapse: collapse;
+            border: 4px solid black;
+            margin-bottom: 15px;
+        }
+
+        #delall {
+            text-align: center;
+            border-style: solid;
+            border-radius: 3px;
+            width: 80px;
+
+        }
+
+        #del_1 {
+            text-align: center;
+            border: 2px solid black;
+
+        }
+        #page{
+            text-align: center;
+            border: 2px solid black;
+            margin: 3px; 
+            margin-top: 20px;
+            padding: 2px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="text"> Search Users</h1>
+    <div id="search">
+        <form action="/sanjay" method="get">
+            <input type="text" name="search" value="">
+            <input type="submit" name="">
+        </form>
+
+
+    </div>
+
+    <center>
+        <p id="delall" onclick="deleteall()"> delete all</p>
+    </center>
+
+
+    <table border="1" align="center" id="table">
+        <div id="sanj">
+            <tr>
+                <td>deleteall</td>
+                <td>id</td>
+                <td>^</td>
+                <td>%</td>
+                <td>,</td>
+                <td>:</td>
+                <td>;</td>
+                <td>=</td>
+                <td>+</td>
+                <td>delete</td>
+            </tr>
+            <tr>
+                <td>deleteall</td>
+                <td>id</td>
+                <td>f_name</td>
+                <td>l_name</td>
+                <td>city</td>
+                <td>state</td>
+                <td>gender</td>
+                <td>relation</td>
+                <td>designation</td>
+                <td>delete</td>
+            </tr>
+
+
+            <% for(let j=0;j<data.length;j++) {%>
+                <tr id="<%= data[j].id%>">
+                    <td><input class="del_all" type="checkbox" value="<%= data[j].id%>"></td>
+                    <td>
+                        <%= data[j].id%>
+                    </td>
+                    <td>
+                        <%= data[j].f_name%>
+                    </td>
+                    <td>
+                        <%= data[j].l_name%>
+                    </td>
+                    <td>
+                        <%= data[j].city%>
+                    </td>
+                    <td>
+                        <%= data[j].state%>
+                    </td>
+                    <td>
+                        <%= data[j].gender%>
+                    </td>
+                    <td>
+                        <%= data[j].relation%>
+                    </td>
+                    <td>
+                        <%= data[j].designation%>
+                    </td>
+                    <td>
+                        <center><span id="del_1" onclick="delete1('<%= data[j].id%>')"> del</span></center>
+                    </td>
+
+                    <% };%>
+                </tr>
+        </div>
+    </table>
+
+    <div>
+        <% for(let i=1;i<=9 ;i++) {%>
+           <span id="page" onclick="pageajax(`<%= i%>`)">
+                <%= i%>
+            </span>
+            <% }%>
+    </div>
+
+    <script>
+
+       async function pageajax(s) {
+            
+         const dataquery = await fetch(`http://localhost:5800/page_1?page=${s}&ajax=true`);
+         const data = await dataquery.json();
+
+            // console.log("DATA"+data);
+                var str = "";
+                str = ` <tr>
+                <td>deleteall</td>
+                <td>id</td>
+                <td>^</td>
+                <td>%</td>
+                <td>,</td>
+                <td>:</td>
+                <td>;</td>
+                <td>=</td>
+                <td>+</td>
+                <td>delete</td>
+            </tr>
+            <tr>
+                <td>deleteall</td>
+                <td>id</td>
+                <td>f_name</td>
+                <td>l_name</td>
+                <td>city</td>
+                <td>state</td>
+                <td>gender</td>
+                <td>relation</td>
+                <td>designation</td>
+                <td>delete</td>
+            </tr>`;
+            // console.log("weartghtgteat"+data);
+
+             for(let j=0;j<data.length;j++) {
+               
+               str+= ` <tr id="${data[j].id}">
+                    <td><input class="del_all" type="checkbox" value="${ data[j].id}"></td>
+                    <td>
+                        ${data[j].id}
+                    </td>
+                    <td>
+                        ${data[j].f_name}
+                    </td>
+                    <td>
+                        ${data[j].l_name}
+                    </td>
+                    <td>
+                        ${data[j].city}
+                    </td>
+                    <td>
+                        ${data[j].state}
+                    </td>
+                    <td>
+                        ${data[j].gender}
+                    </td>
+                    <td>
+                        ${data[j].relation}
+                    </td>
+                    <td>
+                        ${data[j].designation}
+                    </td>
+                    <td>
+                        <center><span id="del_1" onclick="delete1('${ data[j].id}')"> del</span></center>
+                    </td>
+
+                     
+                </tr>`
+            }
+var x = document.getElementById('table')
+x.innerHTML = str;
+        
+
+        }
+
+        async function delete1(id) {
+            console.log(id)
+            if (confirm(`You are sure delete ${id} `)) {
+                document.getElementById(`${id}`).style.display = 'none';
+                const ans = await fetch(`http://localhost:5800/delete-api?del_1=${id}`);
+            }
+        }
+
+        async function deleteall() {
+            // console.log('sanjay');
+            del = [];
+            var san = document.getElementsByClassName('del_all');
+
+            for (let i = 0; i < san.length; i++) {
+
+                if (san[i].checked) {
+                    del.push(san[i].value)
+                }
+
+            }
+
+            if (confirm(` are you sure delete ?`)) {
+                del.forEach(id => {
+                    document.getElementById(`${id}`).style.display = 'none';
+                });
+                const ans = await fetch(`http://localhost:5800/deleteall-api?del_all=${del}`);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

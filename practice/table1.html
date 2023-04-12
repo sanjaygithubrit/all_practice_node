@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+        <td id="td1">text</td>
+        <td id="td2">text</td>
+        <td id="td3">text</td>
+        </tr>
+        <tr>
+            <td id="td4">text</td>
+            <td>text</td>
+            <td>text</td>
+            </tr>
+            <tr>
+                <td>text</td>
+                <td>text</td>
+                <td>text</td>
+                </tr>
+                <tr>
+                    <td>text</td>
+                    <td>text</td>
+                    <td>text</td>
+                    </tr>
+    </table>
+    <script>
+        document.getElementById("td1").onclick = td;
+        function td(){
+            alert("hello ");
+        }
+        document.getElementById("td2").onmousedown = td2;
+        function td2(){
+            alert("hello ");
+        }
+        document.getElementById("td3").onmouseup = td3;
+        function td3(){
+            alert("hello ");
+        }
+        document.getElementById("td4").ondblclick = td4;
+        function td4(){
+            alert("hello ");
+        }
+
+    </script>
+</body>
+</html>

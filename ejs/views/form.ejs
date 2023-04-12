@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #led1 {
+            width: 50%;
+            margin-left: 15%;
+        }
+
+        #led2 {
+            width: 70%;
+            margin-left: 15%;
+        }
+
+        #led3 {
+            width: 80%;
+            margin-left: 15%;
+        }
+
+        #led4 {
+            width: 40%;
+        }
+
+        #led5 {
+            width: 40%;
+        }
+
+        #led6 {
+            width: 60%;
+            margin-left: 15%;
+        }
+
+        #led7 {
+            width: 60%;
+            margin-left: 15%;
+        }
+        body{
+            background-color: beige;
+        }
+        #job{
+        text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1 id="job">Job Application Form</h1>
+    <form action="/form" method="post">
+        <fieldset id="led1">
+            <legend>Basic Detail</legend>
+            <table align="center">
+                <tr>
+                    <td><label for="fname">First name</label></td>
+                    <td><input type="text" id="fname" name="fname" placeholder="First name"></td>
+                    <td><label for="fname">Last name</label></td>
+                    <td><input type="text" id="lname" name="lname" placeholder="Last name" ></td>
+                </tr>
+                <tr>
+                    <td><label for="desig">designation</label></td>
+                    <td><input type="text" id="desig" name="desig" placeholder="designation" ></td>
+                </tr>
+                <tr>
+                    <td><label for="add1">Address 1</label></td>
+                    <td><input type="text" id="add1" name="add1" placeholder="Address 1" ></td>
+                    <td><label for="add2">Address 2</label></td>
+                    <td><input type="text" id="add2" name="add2" placeholder="Address 2" ></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td><input type="email" id="email" name="email" placeholder="Email"></td>
+                    <td><label for="phone">Contact_no</label></td>
+                    <td><input type="tel" id="phone" name="phone" placeholder="Contact no"></td>
+                </tr>
+                <tr>
+                    <td><label for="city">City</label></td>
+                    <td>
+                        <select name="city" id="city">
+                        <% for(let i=0;i<data2.length ;i++) {%>
+                        <option value="<%= data2[i].option_tag_value%>"><%= data2[i].option_tag_value%></option>
+                        <% }%>
+                    </select>
+                
+                </td>
+                    <td><label for="state">State</label></td>
+                    <td><select name="state" id="state">
+                        <% for(let i=0;i<data3.length ;i++) {%>
+                        <option value="<%= data3[i].option_tag_value%>"><%= data3[i].option_tag_value%></option>
+                        <% }%>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td><label for="gender">Gender</label></td>
+                    <td><label for="male">Male</label>
+                        <input type="radio" id="male" name="male">
+                        <label for="female">Female</label>
+                        <input type="radio" id="female" name="male">
+                        <label for="other">Other</label>
+                        <input type="radio" id="other" name="male">
+                    </td>
+                    <td><label for="zip">Zip Code</label></td>
+                    <td><input type="number" id="zip" name="zip"></td>
+                </tr>
+                <tr>
+                    <td><label for="rel">Relation Status</label></td>
+                    <td><select name="rel" id="rel">
+                        <% for(let i=0;i<data4.length ;i++) {%>
+                            <option value="<%= data4[i].option_tag_value%>"><%= data4[i].option_tag_value%></option>
+                            <% }%>
+                            
+                        </select></td>
+                    <td><label for="dob">Date Of Birth</label></td>
+                    <td><input type="date" id="dob" name="dob"></td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <fieldset id="led2">
+            <legend>Education detail</legend>
+            <table align="center" id="edu">
+                <tr>
+                    <td><label for="course">Course</label></td>
+                </tr>
+                <tr>
+                    <td><label for="cou_1">Name of Course</label></td>
+                    <td><select name="rel" id="rel">
+                        <% for(let i=0;i<data5.length ;i++) {%>
+                            <option value="<%= data5[i].option_tag_value%>"><%= data5[i].option_tag_value%></option>
+                            <% }%>
+                            
+                        </select></td>
+                    <td><label for="cou_2">Passing year</label></td>
+                    <td><input type="text" id="cou_2" name="cou_2"></td>
+                    <td><label for="cou_3">Percentage</label></td>
+                    <td><input type="text" id="cou_3" name="cou_3"></td>
+                </tr>
+                <tr id="edu1"></tr>
+                <tr id="edu2"></tr>
+                <tr id="edu3"></tr>
+                <tr id="edu4"></tr>
+                <tr id="edu5"></tr>
+                <tr id="edu6"></tr>
+
+                <tr>
+                    <td><input id="add" type="button" name="Add" value="ADD" onclick="sanjay()"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset id="led3">
+            <legend>Work Experience</legend>
+            <table align="center" id="work">
+                <tr>
+                    <td><label for="work">Work Experience</label></td>
+                </tr>
+                <tr>
+                    <td><label for="work1">Company Name</label></td>
+                    <td><input type="text" id="work1" name="work1"></td>
+                    <td><label for="work2">Designation</label></td>
+                    <td><input type="text" id="work2" name="work2"></td>
+                    <td><label for="work3">From</label></td>
+                    <td><input type="date" id="work3" name="work3"></td>
+                    <td><label for="work4">To</label></td>
+                    <td><input type="date" id="work4" name="work4"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="button" name="Add" value="ADD" onclick="sanjay1()"></td>
+                </tr>
+
+            </table>
+        </fieldset>
+        <table align="center">
+            <tr>
+                <td>
+                    <fieldset id="led4">
+                        <legend>Language Know</legend>
+                        <table align="center">
+                            <% for(let i=0;i<data9.length ;i++) {%>
+                                <tr>
+                                    <td><input type="checkbox" id="h1" name="h1"></td>
+                                    <td><label for="h1"><%= data9[i].option_tag_value%></label></td>
+                                    <td><input type="checkbox" id="h1" name="h1"></td>
+                                    <td><label for="h1">Read</label></td>
+                                    <td><input type="checkbox" id="h1" name="h1"></td>
+                                    <td><label for="h1">Write</label></td>
+                                    <td><input type="checkbox" id="h1" name="h1"></td>
+                                    <td><label for="h1">Speak</label></td>
+                                </tr>
+                                <% }%>
+                            
+                            
+                                
+                        </table>
+                    </fieldset>
+                </td>
+                <td>
+                    <fieldset id="led5">
+                        <legend>Technology </legend>
+                        <table align="center">
+                            <% for(let i=0;i<data10.length ;i++) {%>
+                            <tr>
+                                <td><input type="checkbox" id="t1" name="t1"></td>
+                                <td><label for="h1"><%= data10[i].option_tag_value%></label></td>
+                                <td><input type="radio" id="t1" name="<%= data10[i].option_tag_value%>"></td>
+                                <td><label for="h1">Beginer</label></td>
+                                <td><input type="radio" id="t1" name="<%= data10[i].option_tag_value%>"></td>
+                                <td><label for="h1">Mideator</label></td>
+                                <td><input type="radio" id="t1" name="<%= data10[i].option_tag_value%>"></td>
+                                <td><label for="h1">Expert</label></td>
+                            </tr>
+                            <% }%>
+                           
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+
+        <fieldset id="led6">
+            <legend>Referance contact</legend>
+            <table align="center">
+                <tr>
+                    <td><label for="ref1">Name </label>
+                        <input type="text" id="ref1" name="ref1">
+                        <label for="ref2">Contact no</label>
+                        <input type="text" id="ref2" name="ref2">
+                        <label for="ref3">Relation</label>
+                        <input type="text" id="ref3" name="ref3">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="ref4">Name </label>
+                        <input type="text" id="ref4" name="ref4">
+                        <label for="ref5">Contact no</label>
+                        <input type="text" id="ref5" name="ref5">
+                        <label for="ref6">Relation</label>
+                        <input type="text" id="ref6" name="ref6">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset id="led7">
+            <legend>Preferance</legend>
+            <table align="center">
+                <tr>
+                    <td><label for="">Prefered location</label></td>
+                    <td><select name="pre" id="pre">
+                        <% for(let i=0;i<data7.length ;i++) {%>
+                            <option value="<%= data7[i].option_tag_value%>"><%= data7[i].option_tag_value%></option>
+                            <% }%>
+                            
+                        </select>
+                    </td>
+
+                    <td><label for="">Department</label></td>
+                    <td><select name="dep" id="dep">
+                        <% for(let i=0;i<data8.length ;i++) {%>
+                            <option value="<%= data8[i].option_tag_value%>"><%= data8[i].option_tag_value%></option>
+                            <% }%>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="notice">Notice Period</label></td>
+                    <td><input type="text" id="notice" name="notice" placeholder="Notice Period"></td>
+                    <td><label for="current">Current CTC</label></td>
+                    <td><input type="text" id="current" name="current" placeholder="Current CTC"></td>
+                    <td><label for="expect">Expected CTC</label></td>
+                    <td><input type="text" id="expect" name="expect" placeholder="Expected CTC"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <input type="submit" name="submit" id="submit" value="submit">
+    </form>
+    <script>
+        let s = 1;
+        function sanjay() {
+               var table = document.getElementById("edu") ;
+               var sanjay123 = table.insertRow(2);
+               sanjay123.innerHTML = '<td><label for="cou_1">Name of Course</label></td><td><select name="rel" id="rel"><% for(let i=0;i<data5.length ;i++) {%> <option value="<%= data5[i].option_tag_value%>"><%= data5[i].option_tag_value%></option> <% }%> </select></td><td><label for="cou_2">Passing year</label></td><td><input type="text" id="cou_2" name="cou_2"></td><td><label for="cou_3">Percentage</label></td><td><input type="text" id="cou_3" name="cou_3"></td>'
+
+
+
+            // document.getElementById("edu" + s).innerHTML = '<td><label for="cou_1">Name of Course</label></td><td><select name="rel" id="rel"><% for(let i=0;i<data5.length ;i++) {%> <option value="<%= data5[i].option_tag_value%>"><%= data5[i].option_tag_value%></option> <% }%> </select></td><td><label for="cou_2">Passing year</label></td><td><input type="text" id="cou_2" name="cou_2"></td><td><label for="cou_3">Percentage</label></td><td><input type="text" id="cou_3" name="cou_3"></td>'
+
+            // s++;
+        }
+        function sanjay1() {
+            let table1 = document.getElementById("work");
+            let sanjay12 = table1.insertRow(2);
+            sanjay12.innerHTML = '<td><label for="work1">Company Name</label></td><td><input type="text" id="work1" name="work1"></td><td><label for="work2">Designation</label></td><td><input type="text" id="work2" name="work2"></td><td><label for="work3">From</label></td><td><input type="date" id="work3" name="work3"></td><td><label for="work4">To</label></td><td><input type="date" id="work4" name="work4"></td>'
+        }
+    </script>
+</body>
+
+</html>

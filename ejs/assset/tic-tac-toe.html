@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: darkgray;
+        }
+         table{
+            background-color: antiquewhite;
+            margin-top: 50px;
+            border-radius: 10px;
+         }
+        td{
+            
+            height: 100px;
+            width: 100px;
+            
+        }
+       #reset{
+        margin-left: 47%;
+        color: rgb(236, 10, 10);
+        font-size: 30px;
+        border-radius: 10px;
+       }
+       #sanjay123{
+        text-align: center;
+        background-color: aqua;
+       font-size: 50px;
+       border-radius: 8px;
+        
+       }
+       #sanjay{
+        text-align: center;
+        font-size: 45px;
+        
+       }
+       .tab1{
+        text-align: center;
+       }
+        
+    </style>
+</head>
+<body> 
+    <h2 id ="sanjay123" > Tic-Tac-Toe</h2>
+    <table border="1" align ="center">
+        <tr class="tab1">
+            <td id="s1"onclick="sanjays11(this);sanjays();" ></td>
+            <td id="s2"onclick="sanjays21(this);sanjays();" ></td>
+            <td id="s3"onclick="sanjays31(this);sanjays();" ></td>
+        </tr>
+        <tr class="tab1">
+            <td id="s4"onclick="sanjays41(this);sanjays();" ></td>
+            <td id="s5"onclick="sanjays51(this);sanjays();" ></td>
+            <td id="s6"onclick="sanjays61(this);sanjays();" ></td>
+        </tr>
+        <tr class="tab1">
+            <td id="s7"onclick="sanjays71(this);sanjays();" ></td>
+            <td id="s8"onclick="sanjays81(this);sanjays();" ></td>
+            <td id="s9"onclick="sanjays91(this);sanjays();" ></td>
+        </tr>
+
+    </table>
+    <p id="sanjay" ></p>
+    <button id="reset" onclick="reset()">Reset</button>
+    <script>
+      sanjay = 1;
+      sanjays1 = 1;
+            function sanjays11(sanjay11){
+               if(sanjay == 1 && sanjay11.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s1").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay11.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s1").innerHTML ="1";
+                sanjay = 1;
+                }
+                
+             }
+            function sanjays21(sanjay22){
+               if(sanjay==1 && sanjay22.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s2").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay22.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s2").innerHTML ="1";
+                sanjay = 1;
+                }
+                 
+            }
+            function sanjays31(sanjay33){
+               if(sanjay==1 && sanjay33.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s3").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay33.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s3").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+            function sanjays41(sanjay44){
+               if(sanjay==1 && sanjay44.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s4").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay44.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s4").innerHTML ="1";
+                sanjay = 1;
+                }
+               }
+            function sanjays51(sanjay55){
+               if(sanjay==1 && sanjay55.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s5").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay55.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s5").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+            function sanjays61(sanjay66){
+               if(sanjay==1 && sanjay66.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s6").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay66.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s6").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+            function sanjays71(sanjay77){
+               if(sanjay==1 && sanjay77.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s7").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay77.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s7").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+            function sanjays81(sanjay88){
+               if(sanjay==1 && sanjay88.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s8").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay88.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s8").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+            function sanjays91(sanjay99){
+               if(sanjay==1 && sanjay99.innerHTML==''&& sanjays1 == 1){
+                document.getElementById("s9").innerHTML ="0";
+                sanjay = 0;
+               }
+                else if(sanjay99.innerHTML==''&& sanjays1 == 1){
+                    document.getElementById("s9").innerHTML ="1";
+                sanjay = 1;
+                }
+            }
+           function sanjays(){
+               var sanjay1 = document.getElementById("s1").innerText;
+               var sanjay2 = document.getElementById("s2").innerText;
+               var sanjay3 = document.getElementById("s3").innerText;
+               var sanjay4 = document.getElementById("s4").innerText;
+               var sanjay5 = document.getElementById("s5").innerText;
+               var sanjay6 = document.getElementById("s6").innerText;
+               var sanjay7 = document.getElementById("s7").innerText;
+               var sanjay8 = document.getElementById("s8").innerText;
+               var sanjay9 = document.getElementById("s9").innerText;
+          
+
+               if(sanjay1== '0' && sanjay2=='0' && sanjay3=='0'){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+
+               }
+               else if(sanjay4=="0" && sanjay5=="0" && sanjay6=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay7=="0" && sanjay8=="0" && sanjay9=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay1=="0" && sanjay4=="0" && sanjay7=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay2=="0" && sanjay5=="0" && sanjay8=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay3=="0" && sanjay6=="0" && sanjay9=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay1=="0" && sanjay5=="0" && sanjay9=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay3=="0" && sanjay5=="0" && sanjay7=="0"){
+                    document.getElementById("sanjay").innerHTML = "0 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay1=="1" && sanjay2=="1" && sanjay3=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay4=="1" && sanjay5=="1" && sanjay6=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay7=="1" && sanjay8=="1" && sanjay9=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay1=="1" && sanjay4=="1" && sanjay7=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay2=="1" && sanjay5=="1" && sanjay8=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay3=="1" && sanjay6=="1" && sanjay9=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay1=="1" && sanjay5=="1" && sanjay9=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if(sanjay3=="1" && sanjay5=="1" && sanjay7=="1"){
+                    document.getElementById("sanjay").innerHTML = "1 Winner ";
+                    sanjays1=0;
+               }
+               else if((sanjay1=='0'||sanjay1=='1')&&(sanjay2=='0'||sanjay2=='1')&&(sanjay3=='0'||sanjay3=='1')
+               &&(sanjay4=='0'||sanjay4=='1')&&(sanjay5=='0'||sanjay5=='1')&&(sanjay6=='0'||sanjay6=='1')
+               &&(sanjay7=='0'||sanjay7=='1')&&(sanjay8=='0'||sanjay8=='1')&&(sanjay9=='0'||sanjay9=='1')){
+                document.getElementById("sanjay").innerHTML = "Draw ";
+               }
+           }
+           function reset(){
+            
+               var sanjay1 = document.getElementById("s1").innerText = '';
+               var sanjay2 = document.getElementById("s2").innerText = '';
+               var sanjay3 = document.getElementById("s3").innerText = '';
+               var sanjay4 = document.getElementById("s4").innerText = '';
+               var sanjay5 = document.getElementById("s5").innerText = '';
+               var sanjay6 = document.getElementById("s6").innerText = '';
+               var sanjay7 = document.getElementById("s7").innerText = '';
+               var sanjay8 = document.getElementById("s8").innerText = '';
+               var sanjay9 = document.getElementById("s9").innerText = '';
+               var sanjay10 = document.getElementById("sanjay").innerText = '';
+               sanjay = 1;
+           }
+    </script>
+</body>
+</html>

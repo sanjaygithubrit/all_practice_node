@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            padding: 5px;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 10px;
+            background-color: cornsilk;
+        }
+        #page{
+            text-align: center;
+        }
+        .page123{
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: bisque;
+        }
+        .page1234{
+            border: 2px solid rgb(207, 20, 20);
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: rgb(226, 139, 33);
+        }
+        .page123:hover{
+            background-color: coral;
+        }
+        body{
+            background-color: aqua;
+        }
+        #no{
+            text-align: center;
+            font-size: 60px;
+        }
+        
+    </style>
+</head>
+<body> 
+   
+
+    <h1 id="no">
+        page no : <%= page%>
+    </h1>
+    <a href="/users/<%=parseInt(page)+1%>" id="next">next</a>
+    <a href="/users/<%=parseInt(page)-1%>" id="pre">pre</a>
+
+    <table border="1" align="center" id="table">
+        <tr>
+            <td>id</td>
+            <td>first_name</td>
+            <td>last_name</td>
+            <td>college</td>
+            <td>city</td>
+            <td>email</td>
+            <td>contact_no</td>
+        </tr>
+            <% for(let j=0;j<data.length ;j++) {%>
+        <tr>
+            <td><%= data[j].id%></td>
+            <td><%= data[j].first_name%></td>
+            <td><%= data[j].last_name%></td>
+            <td><%= data[j].college%></td>
+            <td><%= data[j].city%></td>
+            <td><%= data[j].email%></td>
+            <td><%= data[j].contact_no%></td>
+            <% };%>
+        </tr>
+    </table>
+    <div id="page">
+    <% for(let i=1;i<=sanjay ;i++) {%>
+     <%   if(i==page){%>
+        <a href="http://localhost:5400/users?page=<%= i %>" class="page1234"><%=i%></a>
+        <%}else{%>
+    <a href="http://localhost:5400/users?page=<%= i %>" class="page123"><%=i%></a>
+    <% }%>
+    <% };%>
+</div>
+
+
+</body>
+</html>

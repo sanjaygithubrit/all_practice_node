@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="home_contain">
+            <div class="div_tag">
+                <h1 class="home_tag"> Wel Come to <%=jwtdata[0].u_name%>
+                </h1>
+            </div>
+            <div class="div_tag">
+                <p class="hometag">Name : <%=jwtdata[0].u_name%>
+                </p>
+            </div>
+            <div class="div_tag">
+                <p class="home_tag">Email : <%=jwtdata[0].u_email%>
+                </p>
+            </div>
+
+
+
+            <div>
+                <a href="/allproject/color -cube.html" class="link">color_cube</a> <br>
+                <a href="/allproject/tic-tac-toe.html" class="link"> tic_tac_toy</a> <br>
+                <a href="/allproject/table4.html" class="link">dynamic table</a> <br>
+                <a href="/allproject/form1.html" class="link">job application form UI</a> <br>
+                <a href="/users" class="link">jobapplication form</a> <br>
+                <a href="/sanjay" class="link">searching</a> <br>
+                <a href="/page_1" class="link">Pagination</a> <br>
+                
+            </div>
+
+            <div class="div_tag">
+                <div id="logout"><a href="/logout"> Logout </a></div>
+            </div>
+        </div>
+    </div>
+
+
+  
+</body>
+
+</html>

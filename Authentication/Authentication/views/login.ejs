@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="contain">
+            <div class="form_contain">
+            <img src="/logo.svg" alt="" class="top_img">
+            <form action="/login" method="post" class="form_tag" onsubmit=" return login_validation()" >
+                <div class="input_field">
+                    <p id="showerror" style="color: red;"></p>
+                    <label for="email" class="field">Email : </label>
+                    <input type="email" name="email" id="email" class="field" required>
+                </div>
+
+                <div class="input_field">
+                    <span id="hidden_text" class="field"></span>
+                    <label for="password" class="field"> Password : </label>
+                    <input type="password" name="password" id="password" class="field" required>
+                </div>
+                <div class="input_field">
+                    <input type="submit" value=" Login " class=" register_button " >
+                </div>
+                <div class="login_text">
+                    <p>
+                       Do'nt have an account? <a href="/register" class="link"> Sign up here</a> 
+                    </p>
+                </div>
+            </form>
+        </div>
+        </div>
+        <div class="bottom_img">
+            <img src="/bottom-logo.png" alt="" srcset="" class="bototm_logo">
+        </div>
+    </div>
+    <script>
+          function login_validation(){
+            var showerror=document.getElementById("showerror");
+            var email=document.getElementById("email").value;
+            var password=document.getElementById("password").value;
+            // console.log(email);
+            fetch("/login", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                }),
+            })
+                .then((res) => {
+                    return res.json();
+                })
+                .then((res) => {
+                    console.log(res);
+                    if (res == false) {
+                        console.log("error!..........................");
+                        document.getElementById("showerror").innerHTML = "Either email or password Wrong!.";
+                        
+                    } else {
+                        console.log("inside the elsse");
+                        document.getElementById("showerror").innerHTML = "";
+                    }
+                });
+         }
+    </script>
+</body>
+
+</html>

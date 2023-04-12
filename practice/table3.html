@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2px">
+        <tr>
+            <td id="td1">1</td>
+            <td id="td2">2</td>
+            <td id="td3">3</td>
+        </tr>
+        <tr>
+            <td id="td4">4</td>
+            <td id="td5">5</td>
+            <td id="td6">6</td>
+        </tr>
+        <tr>
+            <td id="=td7">7</td>
+            <td id="td8">8</td>
+            <td id="td9">9</td>
+        </tr>
+    </table>
+        <script>
+        document.getElementById("td1").addEventListener("click",td1)
+        document.getElementById("td2").addEventListener("mousedown",td2)
+        document.getElementById("td3").addEventListener("mouseup",td3)
+        document.getElementById("td4").addEventListener("dblclick",td4)
+        document.getElementById("td5").addEventListener("mouseover",td5)
+        document.getElementById("td6").addEventListener("mouseout",td6)
+        document.getElementById("td7").addEventListener("contextmenu",td7)
+
+        function td1(){
+            alert("hello ")
+        }
+        function td2(){
+            document.getElementById("td2").style.backgroundColor= "yellow";
+            alert("mousedown")
+        }
+        function td3(){
+            document.getElementById("td3").style.color= "red";
+            alert("mouseup ")
+        }
+        function td4(){
+            document.getElementById("td4").innerHTML= "dblclick"; 
+        }
+        function td5(){
+            document.getElementById("td5").innerHTML= "mouseover"; 
+        }
+        function td6(){
+            document.getElementById("td6").innerHTML= "mouseout"; 
+        }
+        function td7(){
+            document.getElementById("td7").innerHTML= "contextmenu"; 
+        }
+        </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  
+<form action="/users" method="get">
+<input type="text" name="search" value="" > 
+<input type="submit"  name="">
+</form>
+<p>
+    <%= sanja %>
+    </p>
+
+<table border="1" align="center" id="table">
+    <tr>
+        <td>id</td>
+        <td>^</td>
+        <td>%</td>
+        <td>,</td>
+        <td>:</td>
+        <td>;</td>
+        <td>=</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>first_name</td>
+        <td>last_name</td>
+        <td>college</td>
+        <td>city</td>
+        <td>email</td>
+        <td>contact_no</td>
+    </tr>
+        <% for(let j=0;j<data.length ;j++) {%>
+    <tr>
+        <td><%= data[j].id%></td>
+        <td><%= data[j].first_name%></td>
+        <td><%= data[j].last_name%></td>
+        <td><%= data[j].college%></td>
+        <td><%= data[j].city%></td>
+        <td><%= data[j].email%></td>
+        <td><%= data[j].contact_no%></td>
+        <% };%>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

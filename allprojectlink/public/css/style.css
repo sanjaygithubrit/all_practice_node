@@ -1,0 +1,86 @@
+body{
+    background-image: url('/images/background.png');
+    color: white;
+}
+.container{
+    width: 1170px;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.contain{
+    display: inline-block;
+    padding-top: 5em;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #11111188;
+}
+
+.bottom_img{
+    display: inline-block;
+}
+.field{
+    display: inline-block;
+    margin-top: 10px;;
+}
+
+input{
+    height: 2rem;
+    border-radius: 10px;
+}
+.input_field{
+   display: flex;
+   flex-direction: column;
+    width: 100%;
+    padding-top: 2rem;
+
+}
+.text{
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+.login_text{
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+}
+.register_button{
+    display: inline-block;
+    background-color: rgb(35, 126, 35);
+}
+#hidden_text{
+    color: rgb(24, 124, 20);
+}
+.bottom_img{
+    padding-top: 45rem;
+    padding-left: 20rem;
+}
+.link{
+    text-decoration: none;
+    color:  rgb(35, 126, 35); 
+}
+.home_contain{
+   margin-left: 25%;
+   margin-top: 18%;
+   background-color: #11111188;
+   padding: 4%;
+   border-radius: 10px;
+   text-align: center;
+
+}
+.div_tag{
+    padding-top: 10px;
+}
+#logout{
+    display: inline-block;
+    background-color: rgb(35, 126, 35);
+    color: white;
+    border-radius: 10px;
+    padding:0.5rem 1rem;
+    text-decoration: none;
+    margin-top: 20px;
+    
+}
+#email{
+    display: inline-block;
+}

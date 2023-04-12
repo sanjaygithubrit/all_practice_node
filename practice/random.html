@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width',' initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       
+        
+        let firstname1=['sanjay','dhaval','jaydip','mehul','bhavik','anil','dharmesh','punit','hiren','nirav'];
+        let lastname1=['parmar','patel','katudiya','shekh','chavda','haraniya','jambukiya','vaghela','kanjariya','davada'];
+        let college1=['L.DCollege','C.Ushah','SilverOkk','GECBhavnagar','GECRajkot','GECPatan','HNGU','Darshan','DMV','M.Dshah'];
+        let city1=['Botad ','Rajkot','Ahemdabad','Bhavnagar','Surat','Barvala','Salangpure','Dhandhuka','Paliyad','Patan'];
+        let email1=['sanjayparmar1650@gmail.com','dhavalpatel2123@gmail.com','jaydipkatudiya7364@gmail.com','mehulshekh645@gmail.com','bhavikchavda5243@gmail.com','anilparmar5346@gmail.com','dharmeshpatel645@gmail.com','punitvaghela7564@gmail.com','hirenkatudiya7465@gmail.com','niravdavada7465@gmail.com'];
+        let contactno1=['6354008800','9685742365','5698746512','8536451927','5685512374','8543296573','2365498257','6158349532','2356184359','6235914352'];
+        let marks = ['85','90','84','69','79','82','87','90','78','73'];
+    
+        for (i=0;i<=2000;i++){
+
+            let firstname = firstname1[(Math.floor(Math.random()*firstname1.length))];
+            let lastname = lastname1[(Math.floor(Math.random()*lastname1.length))];
+            let college = college1[(Math.floor(Math.random()*college1.length))];
+            let city = city1[(Math.floor(Math.random()*city1.length))];
+            let email = email1[(Math.floor(Math.random()*email1.length))];
+            let contactno = contactno1[(Math.floor(Math.random()*contactno1.length))];
+
+            document.write("update student_master set first_name='"+firstname+"',last_name='"+lastname+"',college='"+college+"',city='"+city+"',email='"+email+"',contact_no='"+contactno+"' where id= "+i+";<br>");
+        }
+
+    </script>
+</body>
+</html>

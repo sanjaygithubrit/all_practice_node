@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table3{
+            background-color: bisque;
+            height: 300px;
+            width: 300px;
+        }
+        #s4{
+            background-color: azure;
+        }
+       
+        #sanjay{
+            font-size: 30px; 
+            text-align: center;
+            margin: 50px;
+            color: brown;
+        }
+        #sanjay123{
+            font-size: 50px;
+        }
+    </style> 
+</head>
+<body>
+    <div id="sanjay">
+        <span id="timer">
+          <span id="time">60</span>Seconds      
+        </span>
+      </div>
+    
+    <table border="1" align="center" id="table3" >
+        <tr>
+            <td id="s1"></td>
+            <td id="s2"></td>
+            <td id="s3"></td>
+        </tr>
+        <tr>
+            <td id="s4" onclick="sanjay()"></td>
+            <td id="s5"></td>
+            <td id="s6"></td>
+        </tr>
+        <tr>
+            <td id="s7"></td>
+            <td id="s8"></td>
+            <td id="s9"></td>
+        </tr>
+    </table>
+   
+<script>
+    sanjayr = 3;
+    sanjayc = 3;
+function sanjay(){
+    sanjayr+=1;
+    sanjayc+=1;
+    let sanjayt = ""
+        for(sanjayi=1;sanjayi<=sanjayr;sanjayi++){
+            sanjayt = sanjayt + "<tr>"
+                for(sanjayj=1;sanjayj<=sanjayc;sanjayj++){
+                    sanjayt = sanjayt + '<td id =""></td>'                   
+                }
+                sanjayt = sanjayt + "</tr>"
+        }
+        document.getElementById("table3").innerHTML=sanjayt;
+        const sanjayarray = document.getElementsByTagName("td");
+        var sanjayresult = sanjayarray[Math.floor(Math.random()*sanjayarray.length)]
+        // console.log(result);
+        sanjaycol1 = Math.floor(Math.random()* 200);
+        sanjaycol2 =  Math.floor(Math.random()* 200);
+        sanjaycol3 =  Math.floor(Math.random()* 200);
+        document.getElementById("table3").style.backgroundColor = 'rgba('+(sanjaycol1-20)+","+(sanjaycol2-20)+","+(sanjaycol3-20)+ ')';
+            
+
+       
+         sanjayresult.style.backgroundColor='rgb('+sanjaycol1+","+sanjaycol2+","+sanjaycol3+')';
+         sanjayresult.addEventListener("click",sanjay)
+}
+var sanjaycounter = 60;
+var sanjayinterval = setInterval(function() {
+    sanjaycounter--;
+
+    if (sanjaycounter <= 0) {
+     		
+      	document.getElementById('timer').innerHTML="<h3>Game Over</h3>";  
+        
+        return;
+    }else{
+    	document.getElementById('time').innerText=sanjaycounter ;
+    
+    }
+}, 1000);
+
+</script>
+</body>
+</html>

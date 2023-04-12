@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body{
+        background-color: beige;
+     }
+     #table{
+        margin-bottom: 10px;
+     }
+        #addrow{
+            border: 2px solid black;
+            background-color: aqua;
+            margin-top: 10px;
+            border-radius: 7px;
+            
+        }
+        #addall{
+            border: 2px solid red;
+            background-color: bisque;
+            margin-top: 15px;
+            border-radius: 7px;
+        }
+        span#addrow:hover{
+           background-color: rgb(33, 211, 63);
+        }
+        span#addall:hover{
+           background-color: rgb(224, 156, 9);
+        }
+        #delete{
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: rgb(209, 54, 54);
+        }
+
+        #save{
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: darkgray;
+        }
+        span#save:hover{
+            background-color: aquamarine;
+        }
+
+        span#delete:hover{
+            background-color: rgb(80, 204, 80);
+        }
+    </style>
+</head>
+<body>
+    <form action="insert_exel" method="post">
+
+        <table  border="1" align="center" id="table" style="border-collapse: collapse;" >
+     
+<% var sanjay;%>
+
+            <tr><td>id</td>
+                <td>sname</td> 
+                <td>fname</td>
+                <td>lname</td>
+                <td>city</td>
+                <td>state</td>
+            </tr>
+           <% for(let j=0;j<result.length;j++){%>
+            <tr id="del<%= j+1%>">
+                <td><input type="text" id="id<%= j+1%>" value="<%= result[j].id%>"></td>
+                <td><input type="text" id="sname<%= j+1%>" value="<%= result[j].col_1%>"></td>
+                <td><input type="text" id="fname<%= j+1%>" value="<%= result[j].col_2%>"></td>
+                <td><input type="text" id="lname<%= j+1%>" value="<%= result[j].col_3%>"></td>
+                <td><input type="text" id="city<%= j+1%>" value="<%= result[j].col_4%>"></td>
+                <td><input type="text" id="state<%= j+1%>" value="<%= result[j].col_5%>"></td>
+                  <td><span onclick="update(`<%= j+1%>`)" id="save"> Save </span></td>  
+                  <td><span onclick="delete_1(`<%= j+1%>`)" id="delete"> Delete </span></td> 
+                
+            </tr>
+            <% sanjay = result[j].id%>
+        <%}%>
+            
+        </table>
+       <center> <span onclick="ADD()" id="addrow"> ADD ROW</span></center><br>
+       <center> <span onclick="ADDALL(`<%= sanjay%>`)" id="addall"> SAVE ALL</span></center>
+
+       
+    </form>
+
+    <script>  
+    var flagid=`<%= sanjay%>`;
+    var  s=parseInt(flagid);
+    var sanj; 
+
+// ADD ROW
+
+       function ADD(){
+              s+=1;
+                  var insert = document.getElementById("table");
+            var sanjay = insert.insertRow(-1);
+            sanjay.innerHTML = ` <td> <input type="text" id="id${s}"></td>
+            <td> <input type="text" id="sname${s}"></td>
+                <td><input type="text" id="fname${s}" value=""></td>
+                <td><input type="text" id="lname${s}" value=""></td>
+                <td><input type="text" id="city${s}" value=""></td>
+                <td><input type="text" id="state${s}" value=""></td>
+                <td><span onclick="inserteds1(${s})"> save </span></td>`
+            
+sanj=s;
+        }
+
+
+// SAVE single record
+
+
+        async function inserteds1(id) {
+            // console.log(id)     
+            var s_name = document.getElementById(`sname${id}`).value;
+            var f_name = document.getElementById(`fname${id}`).value;
+            var l_name = document.getElementById(`lname${id}`).value;
+            var c_city = document.getElementById(`city${id}`).value;
+            var s_state = document.getElementById(`state${id}`).value;
+            //  console.log(l_name)
+            //  console.log(s_name)
+                const ans = await fetch(`http://localhost:7900/single_insert_exel?insert=${id}&sname=${s_name}&fname=${f_name}&lname=${l_name}&ccity=${c_city}&sstate=${s_state}`);
+            
+        }
+// UPDATE Record 
+
+        async function update(id) {
+            // console.log(id)  
+            var idd = document.getElementById(`id${id}`).value;   
+            var s_name = document.getElementById(`sname${id}`).value;
+            var f_name = document.getElementById(`fname${id}`).value;
+            var l_name = document.getElementById(`lname${id}`).value;
+            var c_city = document.getElementById(`city${id}`).value;
+            var s_state = document.getElementById(`state${id}`).value;
+            
+                const ans = await fetch(`http://localhost:7900/update?sname=${s_name}&fname=${f_name}&lname=${l_name}&ccity=${c_city}&sstate=${s_state}&idd=${idd}`);
+            
+        }
+
+// DELETE RECORD
+
+
+        async function delete_1(id) {
+             console.log(id)  
+            var idd = document.getElementById(`id${id}`).value;   
+     
+            // var s_name = document.getElementById(`sname${id}`).value;
+            // var f_name = document.getElementById(`fname${id}`).value;
+            // var l_name = document.getElementById(`lname${id}`).value;
+            // var c_city = document.getElementById(`city${id}`).value;
+            // var s_state = document.getElementById(`state${id}`).value;
+            if(confirm(`Dlelete Record ${idd} `) ){
+                document.getElementById(`del${id}`).style.display = 'none'
+                const ans = await fetch(`http://localhost:7900/delete?idd=${idd}`); 
+            }
+        }
+
+// ADD ALL RECORD
+
+        async function ADDALL(id) {
+            //  console.log("Start",s+1);
+            //  console.log("end",sanj+1);
+             let j=parseInt(id)+1;
+            for(j;j<=sanj;j++){
+                 
+            var s_name = document.getElementById(`sname${j}`).value;
+            var f_name = document.getElementById(`fname${j}`).value;
+            var l_name = document.getElementById(`lname${j}`).value;
+            var c_city = document.getElementById(`city${j}`).value;
+            var s_state = document.getElementById(`state${j}`).value;
+ 
+            await fetch(`http://localhost:7900/single_insert_exel?sname=${s_name}&fname=${f_name}&lname=${l_name}&ccity=${c_city}&sstate=${s_state}`); 
+            
+        }
+    }
+       
+    </script>
+</body>
+</html>

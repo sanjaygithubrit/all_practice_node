@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            padding: 5px;
+            text-align: center;
+            margin: auto;
+            margin-bottom: 10px;
+            background-color: cornsilk;
+        }
+
+        #page {
+            text-align: center;
+        }
+
+        .page123 {
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: bisque;
+        }
+
+        .page1234 {
+            border: 2px solid rgb(207, 20, 20);
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: rgb(226, 139, 33);
+        }
+
+        .page123:hover {
+            background-color: coral;
+        }
+
+        body {
+            background-color: aqua;
+        }
+
+        #no {
+            text-align: center;
+            font-size: 60px;
+        }
+
+        #next {
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: darksalmon;
+        }
+
+        #pre {
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            background-color: darksalmon;
+            font-weight: 300;
+        }
+        #pn{
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1 id="no">
+        page no : <%= page%>
+    </h1>
+    <div id="pn">
+        <a href="/users?page=<%=parseInt(page)-1%>&order=<%= order%>&ad=<%= AD%>" id="pre">pre</a>
+        <a href="/users?page=<%=parseInt(page)+1%>&order=<%= order%>&ad=<%= AD%>" id="next">Next</a>
+        
+    </div>
+
+   <% if(AD=="ASC"){
+    AD = "DESC" ;
+}
+else{
+    AD = "ASC";
+}%>
+    <table border="1" align="center" id="table">
+        <tr>
+            <td><a href="http://localhost:6400/users?page=1&order=id&ad=<%= AD%>">id</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=first_name&ad=<%= AD%>">first_name</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=last_name&ad=<%= AD%>">last_name</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=college&ad=<%= AD%>">college</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=city&ad=<%= AD%>">city</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=email&ad=<%= AD%>">email</a></td>
+            <td><a href="http://localhost:6400/users?page=1&order=contact_no&ad=<%= AD%>">contact_no</a></td>
+        </tr>
+        <% for(let j=0;j<data.length ;j++) {%>
+            <tr>
+                <td><%= data[j].id%></td>
+                <td><%= data[j].first_name%></td>
+                <td><%= data[j].last_name%></td>
+                <td><%= data[j].college%></td>
+                <td><%= data[j].city%></td>
+                <td><%= data[j].email%></td>
+                <td><%= data[j].contact_no%></td>
+                <% };%>
+            </tr>
+    </table>
+     <% if(AD=="ASC"){
+        AD = "DESC" ;
+    }
+    else{
+        AD = "ASC";
+    }%> 
+
+    <div id="page">
+        <% for(let i=1;i<=sanjay ;i++) {%>
+            <% if(i==page){%>
+                 <a href="http://localhost:6400/users?page=<%= i %>&order=<%= order%>&ad=<%= AD%>" class="page1234"><%=i%></a>
+            <%}
+            else{%>
+                 <a href="http://localhost:6400/users?page=<%= i %>&order=<%= order%>&ad=<%= AD%>" class="page123"><%=i%> </a>
+            <% }%>
+        <% };%>
+    </div>
+</body>
+</html>

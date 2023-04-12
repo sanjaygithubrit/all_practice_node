@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Active </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="home_contain">
+            <div class="div_tag">
+                <h1 class="home_tag"> Active your Account
+                </h1>
+            </div>
+            <div class="div_tag">
+                <p class="hometag">Name : <%=jwtdata[0].u_name%>
+                </p>
+            </div>
+            <div class="div_tag">
+                <span class="home_tag">Email : <span id="email">
+                        <%=jwtdata[0].u_email%>
+                    </span>
+                </span>
+            </div>
+
+            <div class="div_tag" id="logout"><a href="/login" onclick="active()"> Conform Email </a></div>
+        </div>
+    </div>
+
+    <script>
+        async function active() {
+
+            var email = document.getElementById('email').innerText;
+         
+         
+            fetch("/active-email", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
+            })
+                .then((res) => {
+
+                })
+        }
+    </script>
+</body>
+
+</html>
